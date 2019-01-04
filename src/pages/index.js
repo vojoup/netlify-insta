@@ -21,7 +21,7 @@ class IndexPage extends React.Component {
   };
 
   render() {
-    const { msg } = this.state;
+    const { loading, msg } = this.state;
     return (
       <Layout>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
@@ -29,7 +29,9 @@ class IndexPage extends React.Component {
         <p>Welcome to your new Gatsby site.</p>
         <p>Now go build something great.</p>
         <Link to="/page-2/">Go to page 2</Link>
-        <button onClick={this.greet}>Get greeted</button>
+        <button onClick={this.greet}>
+          {loading ? 'Loading' : 'Get greeted'}
+        </button>
         {msg && <p>{msg}</p>}
       </Layout>
     );
