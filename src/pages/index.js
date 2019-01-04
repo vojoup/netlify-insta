@@ -6,6 +6,14 @@ import SEO from '../components/seo';
 import '../styles/styles.css';
 
 class IndexPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false,
+      msg: null,
+    };
+  }
+
   greet(e) {
     e.preventDefault();
 
