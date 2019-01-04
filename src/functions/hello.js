@@ -1,4 +1,4 @@
-exports.handler(event, context, callback) {
+exports.handler = function(event, context, callback) {
   console.log('queryStringParameters', event.queryStringParameters);
   callback(null, {
     statusCode: 200,
@@ -6,4 +6,4 @@ exports.handler(event, context, callback) {
       msg: 'Hello, World!',
     }),
   });
-}
+};
