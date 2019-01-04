@@ -13,11 +13,21 @@ class IndexPage extends React.Component {
 
   greet = e => {
     e.preventDefault();
-    console.log('object');
     this.setState({ loading: true });
     fetch('/.netlify/functions/hello')
       .then(response => response.json())
       .then(({ msg }) => this.setState({ loading: false, msg }));
+  };
+
+  getInstagram = e => {
+    e.preventDefault();
+    this.setState({ loading: true });
+    fetch('/.netlify/functions/instagram')
+      .then(response => response.json())
+      .then(data => {
+        this.setState({ loading: false });
+        console.log(data);
+      });
   };
 
   render() {
@@ -33,6 +43,9 @@ class IndexPage extends React.Component {
           {loading ? 'Loading' : 'Get greeted'}
         </button>
         {msg && <p>{msg}</p>}
+        <button onClick={this.getInstagram}>
+          {loading ? 'Loading' : 'Instagram'}
+        </button>
       </Layout>
     );
   }
