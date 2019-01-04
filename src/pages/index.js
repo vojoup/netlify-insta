@@ -15,7 +15,7 @@ class IndexPage extends React.Component {
     e.preventDefault();
     console.log('object');
     this.setState({ loading: true });
-    fetch('/functions/hello')
+    fetch('/.netlify/functions/hello')
       .then(response => response.json())
       .then(({ msg }) => this.setState({ loading: false, msg }));
   };
