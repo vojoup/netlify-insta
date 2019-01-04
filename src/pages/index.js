@@ -11,14 +11,14 @@ class IndexPage extends React.Component {
     msg: null,
   };
 
-  greet(e) {
+  greet = e => {
     e.preventDefault();
     console.log('object');
     this.setState({ loading: true });
     fetch('/.netlify/functions/hello')
       .then(response => response.json())
       .then(({ msg }) => this.setState({ loading: false, msg }));
-  }
+  };
 
   render() {
     const { msg } = this.state;
