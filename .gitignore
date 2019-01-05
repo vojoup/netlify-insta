@@ -70,3 +70,4 @@ yarn-error.log
 
 lambda/
 lambda/instagram.js
+lambda/hello.js
