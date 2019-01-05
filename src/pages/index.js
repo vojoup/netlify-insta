@@ -15,7 +15,7 @@ class IndexPage extends React.Component {
   greet = e => {
     e.preventDefault();
     this.setState({ loading: true });
-    fetch('/.netlify/lambda/hello')
+    fetch('/.netlify/functions/hello')
       .then(response => response.json())
       .then(({ msg }) => this.setState({ loading: false, msg }));
   };
@@ -23,7 +23,7 @@ class IndexPage extends React.Component {
   getInstagram = e => {
     e.preventDefault();
     this.setState({ loading: true });
-    fetch('/.netlify/lambda/instagram')
+    fetch('/.netlify/functions/instagram')
       .then(response => response.json())
       .then(data => {
         this.setState({ loading: false, insta: data });
