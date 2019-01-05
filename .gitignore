@@ -68,6 +68,6 @@ yarn-error.log
 # Yarn Integrity file
 .yarn-integrity
 
-lambda/
+lambda
 lambda/instagram.js
 lambda/hello.js

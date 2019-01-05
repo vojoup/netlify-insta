@@ -6,8 +6,6 @@ exports.handler = function instagram(event, context, callback) {
   const token = process.env.INSTAGRAM_ACCESS_TOKEN;
   const limit = 5;
 
-  console.log('\nENV\n', process.env);
-
   axios(`${endpoint}?access_token=${token}&count=${limit}`)
     .then(({ data: { data: posts } }) => {
       callback(null, {
