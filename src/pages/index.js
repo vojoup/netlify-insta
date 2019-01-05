@@ -9,12 +9,13 @@ class IndexPage extends React.Component {
   state = {
     loading: false,
     msg: null,
+    insta: null,
   };
 
   greet = e => {
     e.preventDefault();
     this.setState({ loading: true });
-    fetch('/.netlify/functions/hello')
+    fetch('/.netlify/lambda/hello')
       .then(response => response.json())
       .then(({ msg }) => this.setState({ loading: false, msg }));
   };
@@ -22,16 +23,30 @@ class IndexPage extends React.Component {
   getInstagram = e => {
     e.preventDefault();
     this.setState({ loading: true });
-    fetch('/.netlify/functions/instagram')
+    fetch('/.netlify/lambda/instagram')
       .then(response => response.json())
       .then(data => {
-        this.setState({ loading: false });
+        this.setState({ loading: false, insta: data });
         console.log(data);
       });
   };
 
+  renderPosts(insta) {
+    return insta.map(
+      (
+        {
+          images: {
+            caption,
+            standard_resolution: { url },
+          },
+        },
+        i
+      ) => <img src={url} alt={caption} key={i} />
+    );
+  }
+
   render() {
-    const { loading, msg } = this.state;
+    const { loading, msg, insta } = this.state;
     return (
       <Layout>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
@@ -46,6 +61,7 @@ class IndexPage extends React.Component {
         <button onClick={this.getInstagram}>
           {loading ? 'Loading' : 'Instagram'}
         </button>
+        {insta && this.renderPosts(insta)}
       </Layout>
     );
   }

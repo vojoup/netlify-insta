@@ -1,4 +1,4 @@
 [build]
   Command = "gatsby build"
-  Functions = "/src/functions"
+  Functions = "lambda"
   Publish = "public/"
