@@ -7,7 +7,6 @@ import '../styles/styles.css';
 
 class IndexPage extends React.Component {
   render() {
-    const { loading, msg, insta } = this.state;
     return (
       <Layout>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
