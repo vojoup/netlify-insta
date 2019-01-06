@@ -10,9 +10,9 @@ class Login extends React.Component {
       <>
         <h1>Log in</h1>
         {isLoggedIn ? (
-          <button onClick={this.handleLogout}>Log out</button>
-        ) : (
           <button onClick={this.handleLogin}>Log in</button>
+        ) : (
+          <button onClick={this.handleLogout}>Log out</button>
         )}
       </>
     );
