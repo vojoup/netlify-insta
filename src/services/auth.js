@@ -16,6 +16,7 @@ export const getUser = () =>
     : {};
 
 const setUser = user =>
+  console.log(user) ||
   window.localStorage.setItem('netlifyUser', JSON.stringify(user));
 
 export const handleLogin = callback => {
