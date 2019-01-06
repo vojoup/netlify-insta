@@ -1,14 +1,19 @@
 import React from 'react';
 import { navigate } from 'gatsby';
-import { handleLogin } from '../services/auth';
+import { handleLogin, isLoggedIn, logout } from '../services/auth';
 
 class Login extends React.Component {
-  handleSubmit = () => handleLogin(user => navigate(`/app/profile`));
+  handleLogin = () => handleLogin(user => navigate(`/app/profile`));
+  handleLogout = () => logout(user => navigate(`/app/login`));
   render() {
     return (
       <>
         <h1>Log in</h1>
-        <button onClick={this.handleSubmit}>Log in</button>
+        {isLoggedIn ? (
+          <button onClick={this.handleLogout}>Log out</button>
+        ) : (
+          <button onClick={this.handleLogin}>Log in</button>
+        )}
       </>
     );
   }
