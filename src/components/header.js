@@ -24,7 +24,6 @@ class Header extends React.Component {
               {siteTitle}
             </Link>
           </h1>
-          {/* <div data-netlify-identity-menu /> */}
         </div>
       </div>
     );

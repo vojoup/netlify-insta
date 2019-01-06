@@ -8,7 +8,7 @@ class Login extends React.Component {
     return (
       <>
         <h1>Log in</h1>
-        <button onClick={this.handleSubmit}>log in</button>
+        <button onClick={this.handleSubmit}>Log in</button>
       </>
     );
   }
